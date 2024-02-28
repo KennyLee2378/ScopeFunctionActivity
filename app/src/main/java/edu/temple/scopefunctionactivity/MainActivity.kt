@@ -27,10 +27,15 @@ class MainActivity : AppCompatActivity() {
     // Look at the final/return value and build the function "working backwards"
 
     // Return a list of random, sorted integers
-    private fun getTestDataArray() : List<Int> {
+
+    /*private fun getTestDataArray() : List<Int> {
         val testArray = MutableList(10){ Random.nextInt()}
         testArray.sort()
         return testArray
+    }*/ //Original function
+
+    private fun getTestDataArray() : List<Int> = MutableList(10){ Random.nextInt() }.apply {
+        sort()
     }
 
     // Return true if average value in list is greater than median value, false otherwise
@@ -44,6 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         return avg < median
     }
+
 
     // Create a view from an item in a collection, but recycle if possible (similar to an AdapterView's adapter)
     private fun getView(position: Int, recycledView: View?, collection: List<Int>, context: Context): View {
